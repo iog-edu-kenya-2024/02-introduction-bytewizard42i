@@ -6,8 +6,7 @@ module Chains where
 -- free by having 'Foldable' derived.
 
 data Chain txs =
-    GenesisBlock
-  | Block (Chain txs) txs
+    GenesisBlock  | Block (Chain txs) txs
   deriving (Show)
 
 eqChain :: Eq txs => Chain txs -> Chain txs -> Bool
@@ -144,6 +143,7 @@ propLongerChain5 = and [ propLongerChain1
 
 validChain :: Chain Int -> Bool
 validChain = error "TODO: implement validChain"
+
 
 propValidChain1 :: Bool
 propValidChain1 = validChain GenesisBlock
